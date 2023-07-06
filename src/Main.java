@@ -1,14 +1,28 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
-        String[][] frutas = {{"Banana", "Morango"}, {"Abacate", "Melancia"}};
-        int index = 0;
-        while (index < frutas.length) {
-            for (String item : frutas[index]) {
-                System.out.println(item.toUpperCase());
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> itemsList = new ArrayList<String>();
+
+
+        boolean continuar = true;
+        int i = 5;
+        while (continuar) {
+            System.out.println("Adicione objetos a uma lista: ");
+            String object = scanner.nextLine();
+            itemsList.add(object.toUpperCase());
+
+            System.out.println("Objeto adicionado! deseja continuar? [S/N]");
+            String escolha = scanner.nextLine();
+
+            if (escolha.toUpperCase().equals("N")) {
+                continuar = false;
             }
-            index++;
+        }
+        for (String item : itemsList){
+            System.out.println(item);
         }
     }
 }
